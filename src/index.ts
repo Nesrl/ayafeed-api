@@ -10,6 +10,10 @@ const app = new Hono()
 
 app.use('*', trimTrailingSlash())
 
+app.get('/', (c) => {
+  return c.text('Ayafeed API 服务已启动，详见 /api/docs')
+})
+
 app.get('/api/docs', (c) => {
   return c.text(`
 # Ayafeed API 文档
@@ -31,7 +35,10 @@ app.get('/api/docs', (c) => {
 - DELETE /api/events/:id              删除场次
 
 ## Appearances
-- GET    /api/appearances?circle_id=...&event_id=... 查询某社团是否参加某场次
+- GET    /api/appearances?circle_id=... 查询某个社团的所有出展记录
+- GET    /api/appearances             查询所有展会所有社团的所有出展记录
+- GET    /api/appearances?event_id=... 查询某个展会的所有出展记录
+- GET    /api/appearances?circle_id=...&event_id=... 查询某社团在某展会的出展记录
 - POST   /api/appearances             新建出展记录
 - DELETE /api/appearances/:id         删除出展记录
 

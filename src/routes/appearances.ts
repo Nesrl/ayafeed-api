@@ -3,7 +3,7 @@ import { getDB } from '../db'
 
 const appearances = new Hono()
 
-// 查询某社团是否参加某场次
+// 查询所有参展记录/某社团/某展会/某社团在某展会的参展记录
 appearances.get('/', async (c) => {
   const db = getDB(c)
   const circle_id = c.req.query('circle_id')
@@ -20,6 +20,7 @@ appearances.get('/', async (c) => {
     sql += ' WHERE event_id = ?'
     params = [event_id]
   }
+  sql += ' ORDER BY created_at DESC'
   const { results } = await db.prepare(sql).bind(...params).all()
   return c.json(results)
 })
