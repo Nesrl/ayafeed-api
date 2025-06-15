@@ -1,0 +1,19 @@
+{
+  "name": "ayafeed-api",
+  "scripts": {
+    "test": "vitest",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "hono": "^4.7.11"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250614.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "vitest": "^3.2.3",
+    "wrangler": "^4.4.0"
+  }
+}
