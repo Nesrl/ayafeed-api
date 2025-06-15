@@ -7,13 +7,14 @@
     {
       "binding": "DB",
       "database_name": "ayafeed-dev",
-      "database_id": "${AYAFEED_DB_ID}"
+      "database_id": "4d029444-08c3-4d68-be62-0b80a270e1e6"
     }
   ],
   "r2_buckets": [
     {
       "binding": "R2",
-      "bucket_name": "${AYAFEED_BUCKET}"
+      "bucket_name": "ayafeed-public-assets"
+      //for prod env, use ayafeed-assets
     }
   ],
   // "compatibility_flags": [
